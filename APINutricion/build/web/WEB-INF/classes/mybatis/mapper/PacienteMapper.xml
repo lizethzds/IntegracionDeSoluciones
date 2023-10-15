@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="pacientes">
+    
+   
+    
+    
+    <select id="obtenerPacientes" resultType="modelo.pojo.Paciente">
+        SELECT * 
+        FROM pacientes
+        
+    </select>
+    
+    
+     <select id="obtenerPacientePorId" resultType="modelo.pojo.Paciente" parameterType="int">
+        SELECT *
+        FROM pacientes
+        WHERE idPaciente =#{idPaciente}
+    </select>
+    
+     <select id="obtenerPacientesIdMedico" resultType="modelo.pojo.Paciente"  >
+        
+       SELECT nombre, apellidoPat, apellidoMat, fechaNacimiento, sexo, peso, estatura,tallaInicial,
+       email, telefono
+       FROM pacientes
+       WHERE idMedico = #{idMedico}
+   
+    </select>
+    
+     <insert id="registrarPaciente" parameterType="modelo.pojo.Paciente">
+        INSERT INTO pacientes(nombre,apellidoPat,apellidoMat,fechaNacimiento,sexo,peso,estatura,tallaInicial,email,telefono,password,idMedico) 
+        VALUES (#{nombre},#{apellidoPat},#{apellidoMat},#{fechaNacimiento},#{sexo},#{peso},#{estatura},#{tallaInicial},#{email},#{telefono},#{password},#{idMedico})
+    </insert>
+      
+    <update id="editarPaciente" parameterType="map">
+        UPDATE pacientes
+        SET nombre=#{nombre},apellidoPat=#{apellidoPat},apellidoMat=#{apellidoMat},fechaNacimiento=#{fechaNacimiento},
+        sexo=#{sexo},peso=#{peso},estatura=#{estatura},tallaInicial=#{tallaInicial},password=#{password},idMedico=#{idMedico} 
+        WHERE idPaciente=#{idPaciente}
+    </update>
+
+    <delete id="eliminarPaciente" parameterType="modelo.pojo.Paciente">
+        DELETE FROM pacientes 
+        WHERE idPaciente=#{idPaciente}
+    </delete>
+    
+    
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="807.0" prefWidth="1074.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorionutricion.FXMLAdminPacientesController">
+   <children>
+      <Pane layoutX="-1.0" prefHeight="122.0" prefWidth="1085.0" style="-fx-background-color: #179AE7;">
+         <children>
+            <Label layoutX="361.0" layoutY="40.0" text="Gestión de pacientes" textFill="#f2f2f2">
+               <font>
+                  <Font name="Arial Bold" size="36.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TextField fx:id="tfBuscarPaciente" layoutX="111.0" layoutY="169.0" prefHeight="31.0" prefWidth="263.0" promptText="Buscar paciente" />
+      <TableView fx:id="tvPacientes" layoutX="31.0" layoutY="250.0" prefHeight="410.0" prefWidth="996.0">
+        <columns>
+          <TableColumn fx:id="colNombre" prefWidth="149.0" text="Nombre" />
+          <TableColumn fx:id="colApellidoPat" minWidth="0.0" prefWidth="139.0" text="Apellido Paterno" />
+            <TableColumn fx:id="colApellidoMat" prefWidth="202.0" text="Apellido Materno" />
+            <TableColumn fx:id="colFechaNacimiento" prefWidth="157.0" text="Fecha de Nacimiento" />
+            <TableColumn fx:id="colEmail" minWidth="4.0" prefWidth="180.0" text="E-mail" />
+            <TableColumn fx:id="colTelefono" minWidth="0.0" prefWidth="168.0" text="Télefono" />
+        </columns>
+      </TableView>
+      <Button layoutX="529.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnRegistrarPaciente" prefHeight="42.0" prefWidth="98.0" text="Registrar" />
+      <Button layoutX="660.0" layoutY="167.0" mnemonicParsing="false" onAction="#btnEditarPaciente" prefHeight="42.0" prefWidth="98.0" text="Editar" />
+      <Button layoutX="785.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnEliminarPaciente" prefHeight="42.0" prefWidth="98.0" text="Eliminar" />
+   </children>
+</AnchorPane>

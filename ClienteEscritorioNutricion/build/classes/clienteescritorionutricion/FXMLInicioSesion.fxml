@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clienteescritorionutricion.FXMLInicioSesionController">
+   <children>
+      <Pane prefHeight="803.0" prefWidth="409.0" style="-fx-background-color: #3498DB;">
+         <children>
+            <ImageView fitHeight="262.0" fitWidth="242.0" layoutX="84.0" layoutY="234.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/nutricion.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane layoutX="392.0" prefHeight="803.0" prefWidth="409.0">
+         <children>
+            <TextField id="txtPersonal" fx:id="tfNumPersonal" layoutX="105.0" layoutY="276.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingresa el numero de control" style="-fx-background-color: transparent; -fx-border-color: #3498DB; -fx-border-width: 0px 0px 2px;" />
+            <PasswordField fx:id="tfPassword" layoutX="105.0" layoutY="365.0" prefHeight="25.0" prefWidth="215.0" promptText="Ingresa la contraseña" style="-fx-background-color: transparent; -fx-border-color: #3498DB; -fx-border-width: 0px 0px 2px;" />
+            <Button layoutX="148.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnIniciarSesion" prefHeight="49.0" prefWidth="130.0" style="-fx-background-color: #4EAEEF; -fx-border-radius: 25; -fx-background-radius: 25;" text="Iniciar sesión" textFill="WHITE" />
+            <Label fx:id="lbErrorUsuario" layoutX="105.0" layoutY="309.0" textFill="#d02020">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblErrorPassword" layoutX="105.0" layoutY="402.0" textFill="#d71717">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="106.0" fitWidth="121.0" layoutX="160.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@img/user.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="157.0" layoutY="63.0" text="Iniciar Sesión">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
