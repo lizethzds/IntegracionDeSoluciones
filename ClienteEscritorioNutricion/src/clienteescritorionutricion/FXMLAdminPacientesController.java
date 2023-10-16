@@ -9,6 +9,7 @@ import clienteescritorionutricion.modelo.dao.PacienteDAO;
 import clienteescritorionutricion.modelo.pojo.Paciente;
 import clienteescritorionutricion.modelo.pojo.RespuestaPaciente;
 import clienteescritorionutricion.utils.Utilidades;
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
@@ -17,12 +18,17 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -67,24 +73,9 @@ public class FXMLAdminPacientesController implements Initializable {
         consultarInformacionPacientes();
     }
 
-    @FXML
-    private void btnRegistrarPaciente(ActionEvent event) {
-    }
 
-    @FXML
-    private void btnEditarPaciente(ActionEvent event) {
-       int posicionSeleccionada = tvPacientes.getSelectionModel().getSelectedIndex();
-        if(posicionSeleccionada != -1){
-            Paciente paciente = pacientesMedico.get(posicionSeleccionada);
-            Utilidades.mostrarAlertaSimple("Paciente ", paciente.getNombre() + " " + paciente.getApellidoPat() + " " + paciente.getApellidoMat(), Alert.AlertType.INFORMATION);
-        }else{
-            Utilidades.mostrarAlertaSimple("Selección de paciente", "Para poder modificar debes seleccionar un paciente de la tabla.", Alert.AlertType.WARNING);
-        }
-    }
+   
 
-    @FXML
-    private void btnEliminarPaciente(ActionEvent event) {
-    }
     
     private void consultarInformacionPacientes(){
         RespuestaPaciente respuesta = PacienteDAO.buscarPacienteIdMedico(idMedico);
@@ -103,6 +94,39 @@ public class FXMLAdminPacientesController implements Initializable {
         colFechaNacimiento.setCellValueFactory(new PropertyValueFactory("fechaNacimiento"));
         colEmail.setCellValueFactory(new PropertyValueFactory("email"));
         colTelefono.setCellValueFactory(new PropertyValueFactory("telefono"));
+    }
+
+    @FXML
+    private void btnFormularioRegistro(ActionEvent event) {
+    }
+
+    @FXML
+    private void btnFormularioEdicion(ActionEvent event) {
+        Paciente posicionSeleccionada = new Paciente();
+        posicionSeleccionada= tvPacientes.getSelectionModel().getSelectedItem();
+        if (posicionSeleccionada !=  null) {
+            try {
+                FXMLLoader loadVista = new FXMLLoader(getClass().getResource("FXMLRegistroPaciente.fxml"));
+                Parent vista = loadVista.load();
+                FXMLRegistroPacienteController controlador = loadVista.getController();
+                controlador.inicializarInformacion(posicionSeleccionada);
+                Stage stage = new Stage();
+                Scene escenaAdmin = new Scene(vista);
+
+                stage.setScene(escenaAdmin);
+                stage.setTitle("Modificar paciente");
+                stage.initModality(Modality.APPLICATION_MODAL);// VER 
+                stage.showAndWait();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+        } else {
+            Utilidades.mostrarAlertaSimple("Seleccion de paciente", "Para modificar debes seleccionar un paciente de la tabla", Alert.AlertType.WARNING);
+        }
+    }
+
+    @FXML
+    private void btnFormularioEliminacion(ActionEvent event) {
     }
     
 }

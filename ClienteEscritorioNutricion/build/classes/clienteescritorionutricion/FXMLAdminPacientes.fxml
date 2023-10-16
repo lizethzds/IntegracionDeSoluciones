@@ -29,8 +29,8 @@
             <TableColumn fx:id="colTelefono" minWidth="0.0" prefWidth="168.0" text="Télefono" />
         </columns>
       </TableView>
-      <Button layoutX="529.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnRegistrarPaciente" prefHeight="42.0" prefWidth="98.0" text="Registrar" />
-      <Button layoutX="660.0" layoutY="167.0" mnemonicParsing="false" onAction="#btnEditarPaciente" prefHeight="42.0" prefWidth="98.0" text="Editar" />
-      <Button layoutX="785.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnEliminarPaciente" prefHeight="42.0" prefWidth="98.0" text="Eliminar" />
+      <Button layoutX="529.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnFormularioRegistro" prefHeight="42.0" prefWidth="98.0" text="Registrar" />
+      <Button layoutX="660.0" layoutY="167.0" mnemonicParsing="false" onAction="#btnFormularioEdicion" prefHeight="42.0" prefWidth="98.0" text="Editar" />
+      <Button layoutX="785.0" layoutY="164.0" mnemonicParsing="false" onAction="#btnFormularioEliminacion" prefHeight="42.0" prefWidth="98.0" text="Eliminar" />
    </children>
 </AnchorPane>
